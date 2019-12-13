@@ -3,4 +3,4 @@ apiVersion: v1
 metadata:
   name: workload
   annotations:
-    linkerd.io/inject: enable
+    linkerd.io/inject: enabled
