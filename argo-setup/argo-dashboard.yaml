@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: argocd
+    namespace: kubernete-dashboard
     server: https://kubernetes.default.svc
   project: system-project
   source:
