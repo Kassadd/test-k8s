@@ -13,6 +13,6 @@ spec:
     repoURL: git@github.com:Kassadd/test-k8s.git
     targetRevision: HEAD
   syncPolicy:
-  automated:
-    prune: true
-    selfHeal: true
+    automated:
+      prune: true
+      selfHeal: true
