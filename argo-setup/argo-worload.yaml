@@ -7,7 +7,7 @@ spec:
   destination:
     namespace: workload
     server: https://kubernetes.default.svc
-  project: system-project
+  project: apps-project
   source:
     path: workload
     repoURL: git@github.com:Kassadd/test-k8s.git

@@ -9,7 +9,7 @@ spec:
     kind: '*'
   description: 'apps a cholon'
   destinations:
-  - namespace: apps
+  - namespace: workload
     server: https://kubernetes.default.svc
   orphanedResources:
     warn: false
