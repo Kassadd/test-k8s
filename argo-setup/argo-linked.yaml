@@ -13,4 +13,3 @@ items:
     source:
       path: cluster-setup/linkerd
       repoURL: git@github.com:Kassadd/test-k8s.git
-      targetRevision: HEAD
