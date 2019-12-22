@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: workload
+  namespace: argocd
+spec:
+  destination:
+    namespace: workload
+    server: https://kubernetes.default.svc
+  project: system-project
+  source:
+    path: workload
+    repoURL: git@github.com:Kassadd/test-k8s.git
+    targetRevision: HEAD
