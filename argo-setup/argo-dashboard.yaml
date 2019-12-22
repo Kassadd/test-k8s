@@ -1,0 +1,16 @@
+apiVersion: v1
+items:
+- apiVersion: argoproj.io/v1alpha1
+  kind: Application
+  metadata:
+    name: dashboard
+    namespace: argocd
+  spec:
+    destination:
+      namespace: linkerd
+      server: https://kubernetes.default.svc
+    project: system
+    source:
+      path: cluster-setup/dashboard
+      repoURL: git@github.com:Kassadd/test-k8s.git
+      targetRevision: HEAD
