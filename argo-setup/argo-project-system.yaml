@@ -20,4 +20,4 @@ spec:
   orphanedResources:
     warn: false
   sourceRepos:
-  - https://github.com/Kassadd/test-k8s
+  - git@github.com:Kassadd/test-k8s.git
