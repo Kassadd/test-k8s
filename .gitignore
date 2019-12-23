@@ -6,3 +6,4 @@ cluster-setup/ingress-nginx/a
 cluster-setup/ingress-nginx/my-aws-public.p12
 cluster-setup/ingress-nginx/my-aws-private.key
 cluster-setup/ingress-nginx/my-aws-public.crt
+*.DS_Store
