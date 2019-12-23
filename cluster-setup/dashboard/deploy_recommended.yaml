@@ -17,7 +17,7 @@ kind: Namespace
 metadata:
   name: kubernetes-dashboard
   annotations:
-    linkerd.io/inject: enable  
+    linkerd.io/inject: enabled
 
 ---
 
