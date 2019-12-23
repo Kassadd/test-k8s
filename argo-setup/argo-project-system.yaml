@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: system-project
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  description: 'system'
+  destinations:
+  - namespace: kube-system
+    server: https://kubernetes.default.svc
+  - namespace: linkerd
+    server: https://kubernetes.default.svc
+  - namespace: argocd
+    server: https://kubernetes.default.svc
+  - namespace: kubernetes-dashboard
+    server: https://kubernetes.default.svc
+  - namespace: ingress-nginx
+    server: https://kubernetes.default.svc
+  orphanedResources:
+    warn: false
+  sourceRepos:
+  - git@github.com:Kassadd/test-k8s.git
