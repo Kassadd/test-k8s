@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   name: ingress-nginx
   annotations:
-    linkerd.io/inject: disable
+    linkerd.io/inject: enable
   labels:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
