@@ -1,18 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: linkerd
   namespace: argocd
 spec:
   destination:
-    namespace: argocd
+    namespace: ingress-nginx
     server: https://kubernetes.default.svc
-  project: default
+  project: system-project
   source:
-    path: argo-apps
+    path: cluster-setup/ingress-nginx
     repoURL: git@github.com:Kassadd/test-k8s.git
     targetRevision: HEAD
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
