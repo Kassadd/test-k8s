@@ -10,7 +10,7 @@ spec:
   - host:
     http:
       paths:
-      - path: /linkerd
+      - path: /linkerd/
         backend:
           serviceName: linkerd-web
           servicePort: http
