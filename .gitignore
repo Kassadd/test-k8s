@@ -1,2 +1,4 @@
 cluster-setup/argocd/key
 cluster-setup/argocd/key.pub
+cluster-setup/ingress-nginx/MyKey.key
+cluster-setup/ingress-nginx/MyCertificate.crt
