@@ -20,7 +20,7 @@ spec:
   rules:
   - host:
     http:
-      paths: /linkerd/
+      paths: "/linkerd/"
       - path: 
         backend:
           serviceName: linkerd-web
