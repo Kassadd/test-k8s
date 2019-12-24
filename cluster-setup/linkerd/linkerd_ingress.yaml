@@ -20,8 +20,8 @@ spec:
   rules:
   - host:
     http:
-      paths: "/linkerd/"
-      - path: 
+      paths: 
+      - path: /linkerd/ 
         backend:
           serviceName: linkerd-web
           servicePort: http
