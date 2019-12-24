@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: argocd
   annotations:
-    linkerd.io/inject: disable
+    linkerd.io/inject: enabled
