@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+- ../../base
+resources:
+- vendor/aggregated-metrics-reader.yaml
+- vendor/auth-delegator.yaml
+- vendor/auth-reader.yaml
+- vendor/deploy_recommended.yaml
+- vendor/eks-admin-account.yaml
+- vendor/metrics-apiservice.yaml
+- vendor/metrics-server-deployment.yaml
+- vendor/metrics-server-service.yaml
+- vendor/resource-reader.yaml
+- custom/dashboard_ingress.yaml
