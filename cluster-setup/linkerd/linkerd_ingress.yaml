@@ -18,7 +18,7 @@ metadata:
     #nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   rules:
-  - host: linkerd.*.javirp.com
+  - host: *.javirp.com
     http:
       paths:
       - path: 
