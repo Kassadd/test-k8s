@@ -4,3 +4,4 @@ bases:
 - ../../base
 resources:
 - vendor/controller.yaml
+- kebeseal-cert.yaml
