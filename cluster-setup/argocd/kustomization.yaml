@@ -1,12 +1,12 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: argocd
+#namespace: argocd
 bases:
 - ../../base
 resources:
-- argo-namespace.yaml
-- install.yaml
-- argo-configMap.yaml
-- argo-secrets.yaml
-- argo-ingress.yaml
-- argo-argoApps.yaml
+- manifests/argo-namespace.yaml
+- vendor/install.yaml
+- manifests/argo-configMap.yaml
+- manifests/argo-secrets.yaml
+- manifests/argo-ingress.yaml
+- manifests/argo-argoApps.yaml

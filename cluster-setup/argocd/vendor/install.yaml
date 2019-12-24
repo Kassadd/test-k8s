@@ -2915,6 +2915,7 @@ spec:
         - argocd-server
         - --staticassets
         - /shared/app
+        - --insecure
         image: argoproj/argocd:v1.3.6
         imagePullPolicy: Always
         livenessProbe:
