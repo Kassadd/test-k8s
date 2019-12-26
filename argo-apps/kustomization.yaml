@@ -11,3 +11,4 @@ resources:
 - manifests/argo-linked.yaml
 - manifests/argo-nginx.yaml
 - manifests/argo-worload.yaml
+- manifests/argo-filebeatDS.yaml
