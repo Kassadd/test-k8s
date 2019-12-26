@@ -7,7 +7,7 @@ spec:
   destination:
     namespace: kube-system
     server: https://kubernetes.default.svc
-  project: apps-project
+  project: system-project
   source:
     path: cluster-setup/filebeat
     repoURL: git@github.com:Kassadd/test-k8s.git
