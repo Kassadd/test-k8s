@@ -12,7 +12,7 @@ spec:
     path: cluster-setup/filebeat
     repoURL: git@github.com:Kassadd/test-k8s.git
     targetRevision: HEAD
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+#  syncPolicy:
+#    automated:
+#      prune: true
+#      selfHeal: true
