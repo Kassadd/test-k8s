@@ -9,6 +9,9 @@ spec:
     server: https://kubernetes.default.svc
   project: apps-project
   source:
-    path: workload/nginx/common
+    path: workload/common
     repoURL: git@github.com:Kassadd/test-k8s.git
     targetRevision: HEAD
+    helm:
+      valueFiles:
+      - nginx/values.yaml
