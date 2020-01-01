@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: {{ .Values.project }}
-  namespace: {{ .Values.argocd_ns }}
+  namespace: {{ .Values.global.argocd_ns }}
   annotations:
     "helm.sh/hook": pre-install
     "helm.sh/hook-weight": "-2"  
@@ -13,8 +13,8 @@ spec:
   description: 'apps a cholon - test'
   destinations:
   - namespace: {{ .Values.namespace }}
-    server: {{ .Values.server.cluster }}
+    server: {{ .Values.global.server.cluster }}
   orphanedResources:
     warn: false
   sourceRepos:
-  - {{ .Values.git.repo }}
+  - {{ .Values.global.git.repo }}

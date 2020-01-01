@@ -2,16 +2,16 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: test
-  namespace: {{ .Values.argocd_ns }}
+  namespace: {{ .Values.global.argocd_ns }}
 spec:
   destination:
     namespace: {{ .Values.namespace }}
-    server: {{ .Values.server.cluster }}
+    server: {{ .Values.global.server.cluster }}
   project: {{ .Values.project }}
   source:
     path: {{ .Values.repo_path }}
-    repoURL: {{ .Values.git.repo }}
-    targetRevision: {{ .Values.targetRevision }}
+    repoURL: {{ .Values.global.git.repo }}
+    targetRevision: {{ .Values.global.targetRevision }}
   syncPolicy:
     automated:
       prune: true
