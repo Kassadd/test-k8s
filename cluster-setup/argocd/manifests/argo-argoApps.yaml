@@ -12,6 +12,8 @@ spec:
     path: argo-apps
     repoURL: git@github.com:Kassadd/test-k8s.git
     targetRevision: HEAD
+    directory:
+      recurse: true
 #  syncPolicy:
 #    automated:
 #      prune: true
