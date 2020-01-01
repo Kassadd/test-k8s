@@ -1,17 +1,14 @@
 # Default values for commons.
 # This is a YAML-formatted file.
 # Declare name/value pairs to be passed into your templates.
-namePrefix: pro-
-nameSuffix: ""
-nameOverride: test2
-fullnameOverride: test2
-fullnamePrefix: pro-
-fullnameSuffix: ""
-fullnameOverride: test2
+namePrefix: dev-
+fullnamePrefix: dev-
 
+#Dummy
 image_repository: docker
 image_tag: "19.03.5-dind"
 image_pullPolicy: IfNotPresent
+##
 
 replicaCount: 2
 
