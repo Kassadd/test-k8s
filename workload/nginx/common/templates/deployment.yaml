@@ -5,6 +5,14 @@ spec:
   replicas: {{ required "Required .Values.replicaCount" .Values.replicaCount }}
   template:
     spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+        intent: apps
+      tolerations:
+      - key: "workload"
+        operator: "Equal"
+        value: "app"
+        effect: "NoSchedule"
       containers:
       - {{ template "common.container" (list . "mychart.deployment.container") }}
 {{- end -}}
