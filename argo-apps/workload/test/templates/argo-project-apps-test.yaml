@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: {{ .Values.project }}
+  namespace: {{ .Values.argocd_ns }}
+  annotations:
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-weight": "-2"  
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  description: 'apps a cholon - test'
+  destinations:
+  - namespace: {{ .Values.namespace }}
+    server: {{ .Values.server.cluster }}
+  orphanedResources:
+    warn: false
+  sourceRepos:
+  - {{ .Values.git.repo }}

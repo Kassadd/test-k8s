@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: workload
+  namespace: {{ .Values.argocd_ns }}
+spec:
+  destination:
+    namespace: {{ .Values.namespace }}
+    server: {{ .Values.server.cluster }}
+  project: {{ .Values.project }}
+  source:
+    path: {{ .Values.repo_path }}
+    repoURL: {{ .Values.git.repo }}
+    targetRevision: {{ .Values.targetRevision }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

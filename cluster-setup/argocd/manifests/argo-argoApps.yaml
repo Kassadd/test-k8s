@@ -9,9 +9,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: "*/argo*.yaml"
+    path: argo-apps
     repoURL: git@github.com:Kassadd/test-k8s.git
-    targetRevision: HEAD
+    targetRevision: master
     directory:
       recurse: true
 #  syncPolicy:

@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: filebeat
+  namespace: {{ .Values.argocd_ns }}
+spec:
+  destination:
+    namespace: kube-system
+    server: {{ .Values.server.cluster }}
+  project: {{ .Values.project }}
+  source:
+    path: cluster-setup/filebeat
+    repoURL: {{ .Values.git.repo }}
+    targetRevision: {{ .Values.targetRevision }}
+#  syncPolicy:
+#    automated:
+#      prune: true
+#      selfHeal: true

@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubeseal
+  namespace: {{ .Values.argocd_ns }}
+spec:
+  destination:
+    namespace: kube-system
+    server: {{ .Values.server.cluster }}
+  project: {{ .Values.project }}
+  source:
+    path: cluster-setup/kubeseal
+    repoURL: {{ .Values.git.repo }}
+    targetRevision: {{ .Values.targetRevision }}

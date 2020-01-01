@@ -1,6 +1,6 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: workload
+  name: test
   annotations:
     linkerd.io/inject: enable

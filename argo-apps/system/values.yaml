@@ -1,0 +1,11 @@
+argocd_ns: argocd
+
+targetRevision: master
+project: system-project
+
+git:
+  repo: git@github.com:Kassadd/test-k8s.git
+
+server:
+  cluster: https://kubernetes.default.svc
+

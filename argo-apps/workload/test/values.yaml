@@ -1,0 +1,14 @@
+argocd_ns: argocd
+namespace: test
+repo_path: workload/test
+common_path: workload/common
+
+targetRevision: master
+project: apps-project-test
+
+git:
+  repo: git@github.com:Kassadd/test-k8s.git
+
+server:
+  cluster: https://kubernetes.default.svc
+

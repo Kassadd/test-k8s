@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dashboard
+  namespace: {{ .Values.argocd_ns }}
+spec:
+  destination:
+    namespace: kubernetes-dashboard
+    server: {{ .Values.server.cluster }}
+  project: {{ .Values.project }}
+  source:
+    path: cluster-setup/dashboard
+    repoURL: {{ .Values.git.repo }}
+    targetRevision: {{ .Values.targetRevision }}
