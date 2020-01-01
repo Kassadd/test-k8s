@@ -9,11 +9,9 @@ fullnamePrefix: dev-
 fullnameSuffix: ""
 fullnameOverride: test2
 
-
-image:
-  repository: docker
-  tag: "19.03.5-dind"
-  pullPolicy: IfNotPresent
+image_repository: docker
+image_tag: "19.03.5-dind"
+image_pullPolicy: IfNotPresent
 
 replicaCount: 2
 

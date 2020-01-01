@@ -15,3 +15,4 @@ spec:
     helm:
       valueFiles:
       - ../nginx/values.yaml
+      - ../nginx/version.yaml

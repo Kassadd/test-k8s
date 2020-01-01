@@ -10,10 +10,9 @@ fullnameSuffix: ""
 fullnameOverride: test2
 
 
-image:
-  repository: nginx
-  tag: "alpine"
-  pullPolicy: IfNotPresent
+image_repository: nginx
+image_tag: "alpine"
+image_pullPolicy: IfNotPresent
 
 replicaCount: 2
 
