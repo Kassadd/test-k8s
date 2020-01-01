@@ -5,3 +5,15 @@ appsPath: argo-apps
 
 argo-cd:
     installCRDs: false
+    dex:
+        enabled: false
+    server:
+        ingress:
+            enabled: false
+        config:
+            repositories: |
+                - url: git@github.com:Kassadd/test-k8s.git
+                  sshPrivateKeySecret:
+                    name: argocd-secret
+                    key: repo.sshprivatekey
+
