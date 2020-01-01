@@ -11,8 +11,8 @@ fullnameOverride: test2
 
 
 image:
-  repository: docker
-  tag: "19.03.5-dind"
+  repository: nginx
+  tag: "alpine"
   pullPolicy: IfNotPresent
 
 replicaCount: 3
