@@ -8,3 +8,9 @@ image_repository: nginx
 image_tag: "alpine"
 
 replicaCount: 2
+
+container:
+  livenessProbe:
+    initialDelaySeconds: 60
+  readinessProbe:
+    initialDelaySeconds: 60

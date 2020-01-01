@@ -20,12 +20,12 @@ container:
   namePort: http
 
   livenessProbe:
-    initialDelaySeconds: 6000
+    initialDelaySeconds: 30
     path: /
     port: 80
   
   readinessProbe:
-    initialDelaySeconds: 6000
+    initialDelaySeconds: 30
     path: /
     port: 80
 
