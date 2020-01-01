@@ -9,10 +9,10 @@ spec:
     server: {{ .Values.server.cluster }}
   project: {{ .Values.project }}
   source:
-    path: {{ .Values.common_path }}
+    path: "{{ .Values.repo_path }}/nginx"
     repoURL: {{ .Values.git.repo }}
     targetRevision: {{ .Values.targetRevision }}
-    helm:
-      valueFiles:
-      - "{{ .Values.repo_path }}/nginx/values.yaml"
-      - "{{ .Values.repo_path }}/nginx/values.yaml"
+#    helm:
+#      valueFiles:
+#      - "{{ .Values.repo_path }}/nginx"
+

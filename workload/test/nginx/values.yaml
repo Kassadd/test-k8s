@@ -1,16 +1,16 @@
 # Default values for commons.
 # This is a YAML-formatted file.
 # Declare name/value pairs to be passed into your templates.
-nameOverride: nginx-test
-fullnameOverride: nginx-test
+common:
+  nameOverride: nginx-test
+  fullnameOverride: nginx-test
 
-image_repository: nginx
-image_tag: "alpine"
+  image_repository: nginx
+  
+  replicaCount: 2
 
-replicaCount: 2
-
-container:
-  livenessProbe:
-    initialDelaySeconds: 60
-  readinessProbe:
-    initialDelaySeconds: 60
+  container:
+    livenessProbe:
+      initialDelaySeconds: 60
+    readinessProbe:
+      initialDelaySeconds: 60
