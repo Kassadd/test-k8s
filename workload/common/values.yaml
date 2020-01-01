@@ -1,11 +1,11 @@
 # Default values for commons.
 # This is a YAML-formatted file.
 # Declare name/value pairs to be passed into your templates.
-namePrefix: dev-
+namePrefix: pro-
 nameSuffix: ""
 nameOverride: test2
 fullnameOverride: test2
-fullnamePrefix: dev-
+fullnamePrefix: pro-
 fullnameSuffix: ""
 fullnameOverride: test2
 
