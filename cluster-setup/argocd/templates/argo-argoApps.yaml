@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-apps-sync
+  labels:
+    app.kubernetes.io/part-of: argocd
+  annotations:
+    "helm.sh/hook": post-install
+spec:
+  destination:
+    namespace: {{ .Release.Namespace }}
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: {{ .Values.appsPath }}
+    repoURL: {{ .Values.repo }}
+    targetRevision: {{ .Values.targetRevision }}
+    directory:
+      recurse: false
+#  syncPolicy:
+#    automated:
+#      prune: true
+#      selfHeal: true

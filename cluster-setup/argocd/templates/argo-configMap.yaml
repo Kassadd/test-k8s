@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ .Release.Name }}"
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+  annotations:
+    "helm.sh/hook": post-install
+data:
+  repositories: |
+    - url: git@github.com:Kassadd/test-k8s.git
+      sshPrivateKeySecret:
+        name: argocd-secret
+        key: repo.sshprivatekey

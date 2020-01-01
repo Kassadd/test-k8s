@@ -1,11 +1,5 @@
-cluster-setup/argocd/key
-cluster-setup/argocd/key.pub
-cluster-setup/ingress-nginx/MyKey.key
-cluster-setup/ingress-nginx/MyCertificate.crt
-cluster-setup/ingress-nginx/a
-cluster-setup/ingress-nginx/my-aws-public.p12
-cluster-setup/ingress-nginx/my-aws-private.key
-cluster-setup/ingress-nginx/my-aws-public.crt
+**key
+**key.pub
 *.DS_Store
 *.lock
-*common*.tgz
+*.tgz

@@ -1,0 +1,7 @@
+
+repo: git@github.com:Kassadd/test-k8s.git
+targetRevision: master
+appsPath: argo-apps
+
+argo-cd:
+    installCRDs: false
