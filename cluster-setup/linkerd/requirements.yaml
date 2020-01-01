@@ -1,0 +1,4 @@
+dependencies:
+- name: linkerd2
+  Version: 2.6.1    
+  repository: https://helm.linkerd.io/stable

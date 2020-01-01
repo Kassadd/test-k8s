@@ -1,0 +1,45 @@
+linkerd2:
+    # identity configuration
+    Identity:
+        Issuer:
+            # must match the expiry date in CrtPEM
+            CrtExpiry: "2020-12-02T00:23:54Z"
+
+            TLS:
+                # PEM-encoded certificate
+                CrtPEM: |
+                    -----BEGIN CERTIFICATE-----
+                    MIIBwDCCAWagAwIBAgIQCpz4R1RyVc8Z+XvgMCbmyTAKBggqhkjOPQQDAjApMScw
+                    JQYDVQQDEx5pZGVudGl0eS5saW5rZXJkLmNsdXN0ZXIubG9jYWwwHhcNMjAwMTAx
+                    MjMyNjIwWhcNMjAxMjMxMjMyNjIwWjApMScwJQYDVQQDEx5pZGVudGl0eS5saW5r
+                    ZXJkLmNsdXN0ZXIubG9jYWwwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAT1yWmG
+                    P3Qnt233CWk2aZ73lBc7eAIdfKZBcnEVEezQMN+hQnz2ULw2DJj7B7az7TJX/Xh9
+                    yaC4yb9RiViEn/O1o3AwbjAOBgNVHQ8BAf8EBAMCAQYwEgYDVR0TAQH/BAgwBgEB
+                    /wIBADAdBgNVHQ4EFgQUmVYiU+KjGG4/OkkJ7NANDklK7jUwKQYDVR0RBCIwIIIe
+                    aWRlbnRpdHkubGlua2VyZC5jbHVzdGVyLmxvY2FsMAoGCCqGSM49BAMCA0gAMEUC
+                    IQCy5M0tXmusc6tq7p5ZIg6zgB/xxaYXSl9VuipC+2fiGwIgY5uWIG0OGr8gi05p
+                    qFViyAaHqnWvD9zri9uf8lFRA3c=
+                    -----END CERTIFICATE-----
+
+
+                # PEM-encoded ECDSA private key
+                KeyPEM: |
+                    -----BEGIN EC PRIVATE KEY-----
+                    MHcCAQEEIBVn2u/npWE/pKCpc4ZzrFwV1BWe7z+YNSf/QKYBZ5S1oAoGCCqGSM49
+                    AwEHoUQDQgAE9clphj90J7dt9wlpNmme95QXO3gCHXymQXJxFRHs0DDfoUJ89lC8
+                    NgyY+we2s+0yV/14fcmguMm/UYlYhJ/ztQ==
+                    -----END EC PRIVATE KEY-----
+
+        TrustAnchorsPEM: |
+            -----BEGIN CERTIFICATE-----
+            MIIBvzCCAWagAwIBAgIQHDGNvi5dfJwRF6E6SnkR+zAKBggqhkjOPQQDAjApMScw
+            JQYDVQQDEx5pZGVudGl0eS5saW5rZXJkLmNsdXN0ZXIubG9jYWwwHhcNMjAwMTAx
+            MjMyNjE3WhcNMjkxMjI5MjMyNjE3WjApMScwJQYDVQQDEx5pZGVudGl0eS5saW5r
+            ZXJkLmNsdXN0ZXIubG9jYWwwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARCj5Kp
+            Mq0/eVcB8aCgQgYn8yAB6FKbj1yuRuA1GlYKJu1XgaHikUdS81euLJkooMEZrLeo
+            2EtWOD0T5w5RlGqpo3AwbjAOBgNVHQ8BAf8EBAMCAQYwEgYDVR0TAQH/BAgwBgEB
+            /wIBATAdBgNVHQ4EFgQUmaUhb51utBlqTArlWP0NYIA3Jh4wKQYDVR0RBCIwIIIe
+            aWRlbnRpdHkubGlua2VyZC5jbHVzdGVyLmxvY2FsMAoGCCqGSM49BAMCA0cAMEQC
+            IHVT3aFi0oU8HO/eMN0GXFotJsiQKKpdsKY9/MAFjxV9AiAtqqESzJi89B/QFWSy
+            XtkynYklueRzUv2SMMngq7g1ww==
+            -----END CERTIFICATE-----
