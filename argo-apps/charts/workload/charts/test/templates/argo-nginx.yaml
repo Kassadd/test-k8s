@@ -14,5 +14,5 @@ spec:
     targetRevision: {{ .Values.targetRevision }}
     helm:
       valueFiles:
-      - "{{ .Values.repo_path }}/nginx/version.yaml"
+      - version.yaml
 
