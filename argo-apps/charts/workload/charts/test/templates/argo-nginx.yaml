@@ -12,7 +12,7 @@ spec:
     path: "{{ .Values.repo_path }}/nginx"
     repoURL: {{ .Values.git.repo }}
     targetRevision: {{ .Values.targetRevision }}
-#    helm:
-#      valueFiles:
-#      - "{{ .Values.repo_path }}/nginx"
+    helm:
+      valueFiles:
+      - "{{ .Values.repo_path }}/nginx/version.yaml"
 

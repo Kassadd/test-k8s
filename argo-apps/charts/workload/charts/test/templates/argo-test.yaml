@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: workload
+  name: test
   namespace: {{ .Values.argocd_ns }}
 spec:
   destination:

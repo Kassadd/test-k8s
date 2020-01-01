@@ -13,7 +13,7 @@ spec:
     repoURL: git@github.com:Kassadd/test-k8s.git
     targetRevision: master
     directory:
-      recurse: true
+      recurse: false
 #  syncPolicy:
 #    automated:
 #      prune: true
