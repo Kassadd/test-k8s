@@ -11,4 +11,8 @@ spec:
   source:
     path: "{{ .Values.repo_path }}/ingress-nginx"
     repoURL: {{ .Values.global.git.repo }}
-    targetRevision: {{ .Values.global.targetRevision }}   
+    targetRevision: {{ .Values.global.targetRevision }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
