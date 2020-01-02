@@ -4,7 +4,7 @@ metadata:
   name: ingress-nginx
   annotations:
     "helm.sh/hook": pre-install
-    linkerd.io/inject: enabled
+    linkerd.io/inject: disabled
     config.linkerd.io/disable-identity: "true"
   labels:
     app.kubernetes.io/name: ingress-nginx
