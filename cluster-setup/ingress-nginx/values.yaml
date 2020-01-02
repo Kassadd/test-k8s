@@ -1,7 +1,10 @@
 nginx-ingress:
     controller:
         ingressClass: nginx
-        
+
+        publishService:
+            enabled: true
+            
         nodeSelector:
             kubernetes.io/os: linux
             intent: apps    
