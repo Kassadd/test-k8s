@@ -1,0 +1,45 @@
+nginx-ingress:
+    controller:
+        ingressClass: nginx
+        
+        config:
+            use-proxy-protocol: "false"
+            use-forwarded-headers: "true"
+            proxy-real-ip-cidr: "0.0.0.0/0" # restrict this to the IP addresses of ELB
+            hsts: "true"
+            hsts-include-subdomains: "true"
+            hsts-preload: "true"    
+        
+        tolerations:
+            - key: "workload"
+              operator: "Equal"
+              value: "app"
+              effect: "NoSchedule"
+            
+        autoscaling:
+            enabled: true
+            minReplicas: 1
+            maxReplicas: 4
+            targetCPUUtilizationPercentage: 30
+            targetMemoryUtilizationPercentage: 30
+        
+        service:
+            annotations:
+                # replace with the correct value of the generated certificate in the AWS console
+                service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "arn:aws:acm:eu-west-1:044827916946:certificate/9d61140c-1060-4f16-b111-b1e661cd3308"
+                # the backend instances are HTTP
+                service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
+                # Map port 443
+                service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+                # Ensure the ELB idle timeout is less than nginx keep-alive timeout. By default,
+                # NGINX keep-alive is set to 75s. If using WebSockets, the value will need to be
+                # increased to '3600' to avoid any potential issues.
+                service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "60"
+
+            ports:
+                http: 80
+                https: 443
+
+            targetPorts:
+                http: http
+                https: http
