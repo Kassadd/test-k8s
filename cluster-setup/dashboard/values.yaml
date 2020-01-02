@@ -1,5 +1,9 @@
 kubernetes-dashboard:
     ingress: 
         enabled: true
+    
     host: dashboard.javirp.com
     enableInsecureLogin: true
+
+    rbac:
+        clusterAdminRole: true
