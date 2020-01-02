@@ -1,4 +1,5 @@
 kubernetes-dashboard:
-    ingress: true
+    ingress: 
+        enabled: true
     host: dashboard.javirp.com
     enableInsecureLogin: true
