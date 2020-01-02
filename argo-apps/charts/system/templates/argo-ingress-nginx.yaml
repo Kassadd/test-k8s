@@ -16,3 +16,15 @@ spec:
   #   automated:
   #     prune: true
   #     selfHeal: true
+
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ingress-nginx
+  labels:
+    app.kubernetes.io/part-of: ingress-nginx
+  annotations:
+    linkerd.io/inject: disabled
+    "helm.sh/hook": pre-install

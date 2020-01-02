@@ -9,7 +9,7 @@ nginx-ingress:
         config:
             use-proxy-protocol: "false"
             use-forwarded-headers: "true"
-            proxy-real-ip-cidr: "0.0.0.0/0" # restrict this to the IP addresses of ELB
+#            proxy-real-ip-cidr: "0.0.0.0/0" # restrict this to the IP addresses of ELB
             hsts: "true"
             hsts-include-subdomains: "true"
             hsts-preload: "true"    
@@ -21,7 +21,7 @@ nginx-ingress:
               effect: "NoSchedule"
             
         autoscaling:
-            enabled: true
+            enabled: false
             minReplicas: 2
             maxReplicas: 4
             targetCPUUtilizationPercentage: 30
@@ -40,7 +40,8 @@ nginx-ingress:
                 # increased to '3600' to avoid any potential issues.
                 service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "60"
                 # by default the type is elb (classic load balancer).
-                service.beta.kubernetes.io/aws-load-balancer-type: nlb
+                service.beta.kubernetes.io/aws-load-balancer-type: elb
+                service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: '*'
 
             ports:
                 http: 80
