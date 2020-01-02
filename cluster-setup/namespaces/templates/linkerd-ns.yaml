@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: linkerd
+  labels:
+    app.kubernetes.io/part-of: linkerd
+  annotations:
+    linkerd.io/inject: disabled
