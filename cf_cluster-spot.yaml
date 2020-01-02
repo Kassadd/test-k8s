@@ -26,6 +26,7 @@ nodeGroups:
         autoScaler: false
         cloudWatch: false
         albIngress: false
+        externalDNS: true
     privateNetworking: true
 
   - name: apps
