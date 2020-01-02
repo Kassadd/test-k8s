@@ -3,6 +3,8 @@ kubernetes-dashboard:
         enabled: true
         hosts: 
         - dashboard.javirp.com
+        annontations:
+            kubernetes.io/ingress.class: nginx
     
     enableInsecureLogin: true
 
