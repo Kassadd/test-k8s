@@ -39,6 +39,8 @@ nginx-ingress:
                 # NGINX keep-alive is set to 75s. If using WebSockets, the value will need to be
                 # increased to '3600' to avoid any potential issues.
                 service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "60"
+                # by default the type is elb (classic load balancer).
+                service.beta.kubernetes.io/aws-load-balancer-type: nlb
 
             ports:
                 http: 80
