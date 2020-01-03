@@ -12,7 +12,7 @@ spec:
     path: "{{ .Values.repo_path }}/namespaces"
     repoURL: {{ .Values.global.git.repo }}
     targetRevision: {{ .Values.global.targetRevision }}
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+#  syncPolicy:
+#    automated:
+#      prune: true
+#      selfHeal: true
