@@ -8,13 +8,13 @@ metadata:
 nodeGroups:
   - name: system
     minSize: 3
-    maxSize: 3
-    desiredCapacity: 3
+    maxSize: 4
+    desiredCapacity: 4
     instancesDistribution:
       instanceTypes: [ "t3a.small", "t3.small" ]
       onDemandBaseCapacity: 0
       onDemandPercentageAboveBaseCapacity: 0
-      spotInstancePools: 3
+      spotInstancePools: 4
     labels:
       lifecycle: Ec2Spot
       intent: system
