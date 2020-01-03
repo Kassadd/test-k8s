@@ -10,12 +10,12 @@ nginx-ingress:
             intent: apps    
 
         config:
-            use-proxy-protocol: false
-            use-forwarded-headers: true
+            use-proxy-protocol: "true"
+            use-forwarded-headers: "true"
 #            proxy-real-ip-cidr: "0.0.0.0/0" # restrict this to the IP addresses of ELB
-            hsts: true
-            hsts-include-subdomains: true
-            hsts-preload: true
+            hsts: "true"
+            hsts-include-subdomains: "true"
+            hsts-preload: "true"    
         
         tolerations:
             - key: "workload"
