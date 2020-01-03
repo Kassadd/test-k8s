@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: externalDNS
+  name: external-dns
   namespace: {{ .Values.global.argocd_ns }}
 spec:
   destination:
