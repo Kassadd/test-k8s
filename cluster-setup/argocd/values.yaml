@@ -20,4 +20,5 @@ argo-cd:
             insecure: true
     configs:
         argocdServerAdminPassword: $2y$12$vUmoDfoeEEqvP2Z1H5nNGeiVm75h7z9.lqVSvVP1Rz1JEHOmBJHs6
+
    
