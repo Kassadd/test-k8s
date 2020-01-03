@@ -5,8 +5,8 @@ namePrefix: dev-
 fullnamePrefix: dev-
 
 #Dummy
-image_repository: docker
-image_tag: "19.03.5-dind"
+image_repository: busybox
+image_tag: "1"
 image_pullPolicy: IfNotPresent
 ##
 
