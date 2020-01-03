@@ -57,7 +57,7 @@ service:
 
   ports:
   - name: http
-    port: http
+    port: 80
     targetPort: http
   # - name: https
   #   port: https
