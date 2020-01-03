@@ -16,7 +16,7 @@ external-dns:
 
     interval: "1m"
     registry: "txt"
-    txtOwnerId: "managedEKS"
+    txtOwnerId: "managedEKS-public"
     annotationFilter: "kubernetes.io/ingress.class=nginx-public"
     domainFilters:
         - javirp.com

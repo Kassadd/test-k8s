@@ -9,7 +9,7 @@ spec:
     server: {{ .Values.global.server.cluster }}
   project: {{ .Values.project }}
   source:
-    path: "{{ .Values.repo_path }}/ingress-nginx-public"
+    path: "{{ .Values.repo_path }}/ingress-nginx/ingress-nginx-public"
     repoURL: {{ .Values.global.git.repo }}
     targetRevision: {{ .Values.global.targetRevision }}
   # syncPolicy:

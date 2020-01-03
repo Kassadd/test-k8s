@@ -1,0 +1,4 @@
+dependencies:
+- name: external-dns
+  Version: 2.13.1  
+  repository: https://kubernetes-charts.storage.googleapis.com/
