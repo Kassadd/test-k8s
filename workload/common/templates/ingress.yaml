@@ -1,0 +1,24 @@
+{{- if .Values.ingress.enabled }}
+{{ template "common.ingress" (list . "mychart.ingress") }}
+{{- end }}
+
+{{- define "mychart.ingress" }}
+metadata:
+  annotations:
+{{- if .Values.ingress.public }}
+    kubernetes.io/ingress.class: nginx-public
+{{- else }}
+    kubernetes.io/ingress.class: nginx-private
+{{- end }}
+
+spec:
+  rules:
+  - host: "{{ required "Set ingress.subdomain with ingress enabled" .Values.ingress.subdomain }}.{{ .Values.ingress.domain }}"
+    http:
+      paths:
+      - path: {{ .Values.ingress.path }}
+        backend:
+          serviceName: {{ template "common.fullname" $ }}
+          servicePort: {{ .Values.ingress.backend.servicePort }}
+
+{{- end }}

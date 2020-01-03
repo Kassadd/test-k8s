@@ -21,3 +21,15 @@ common:
       initialDelaySeconds: 60
     readinessProbe:
       initialDelaySeconds: 60
+  
+  resources:
+    limits:
+      cpu: 100m
+      memory: 12Mi
+    requests:
+      cpu: 100m
+      memory: 12Mi
+
+  ingress:
+    public: true
+    subdomain: test

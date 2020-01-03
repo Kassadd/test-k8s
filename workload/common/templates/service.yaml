@@ -1,0 +1,11 @@
+{{- if .Values.service.enabled }}
+{{- template "common.service" (list . "mychart.service") -}}
+{{- end }}
+
+{{- define "mychart.service" -}}
+
+spec:
+  ports:
+{{ toYaml .Values.service.ports | indent 8 }}
+
+{{- end -}}

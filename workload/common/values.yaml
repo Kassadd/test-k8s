@@ -12,6 +12,13 @@ image_pullPolicy: IfNotPresent
 
 replicaCount: 2
 
+hpa:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPUUtilizationPercentage: 50
+  targetMemoryUtilizationPercentage: 60
+
 nodeSelector:
   kubernetes.io/os: linux
   intent: apps
@@ -21,13 +28,6 @@ tolerations:
   operator: "Equal"
   value: "app"
   effect: "NoSchedule"  
-
-hpa:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 1
-  targetCPUUtilizationPercentage: 50
-  targetMemoryUtilizationPercentage: 60
 
 container:
   containerPort: 80
@@ -54,3 +54,22 @@ container:
 service:
   enabled: true
   type: ClusterIP
+
+  ports:
+  - name: http
+    port: http
+    targetPort: http
+  # - name: https
+  #   port: https
+  #   targetPort: https
+
+ingress:
+  enabled: true
+  domain: javirp.com
+  public: false
+  annotations: 
+    snginx.ingress.kubernetes.io/rewrite-target: "/$1"
+  #subdomain: none
+  path: /
+  backend:
+    servicePort: http
