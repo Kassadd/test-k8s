@@ -60,7 +60,7 @@ service:
     port: 80
     targetPort: http
   # - name: https
-  #   port: https
+  #   port: 443
   #   targetPort: https
 
 ingress:
