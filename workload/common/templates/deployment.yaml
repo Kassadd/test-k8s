@@ -20,7 +20,7 @@ spec:
 {{- define "mychart.deployment.container" -}}
 ports:
 - containerPort: {{ .Values.container.containerPort }}
-  name: "{{ template "common.fullname" . }}-container"
+  name: {{ .Values.container.namePort }}
 livenessProbe:
   initialDelaySeconds: {{ .Values.container.livenessProbe.initialDelaySeconds }}
   httpGet:

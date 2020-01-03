@@ -7,7 +7,7 @@ common:
 
   image_repository: nginx
   
-  replicaCount: 2
+  replicaCount: 3
 
   container:
     livenessProbe:
