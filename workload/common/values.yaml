@@ -23,7 +23,7 @@ tolerations:
   effect: "NoSchedule"  
 
 hpa:
-  enabled: true
+  enabled: false
   minReplicas: 1
   maxReplicas: 1
   targetCPUUtilizationPercentage: 50

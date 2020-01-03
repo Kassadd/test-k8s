@@ -9,6 +9,13 @@ common:
   
   replicaCount: 3
 
+  hpa:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 3
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 60
+
   container:
     livenessProbe:
       initialDelaySeconds: 60
