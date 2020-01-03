@@ -59,10 +59,11 @@ spec:
       containers:
       - args:
         - --source=ingress
+        - --domain-filter=javirp.com
         - --provider=aws
         - --registry=txt
         - --txt-owner-id=extenalDNSEKS
-        - --annotation-filter=kubernetes.io/ingress.class=nginx
+        - --annotation-filter=kubernetes.io/ingress.class=nginx-public
         - --aws-zone-type=public
         - --log-level=debug
         image: registry.opensource.zalan.do/teapot/external-dns:latest

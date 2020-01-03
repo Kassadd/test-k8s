@@ -23,7 +23,7 @@ nodeGroups:
       k8s.io/cluster-autoscaler/node-template/label/intent: system
     iam:
       withAddonPolicies:
-        autoScaler: false
+        autoScaler: true
         cloudWatch: false
         albIngress: false
         externalDNS: true
@@ -48,7 +48,7 @@ nodeGroups:
       k8s.io/cluster-autoscaler/node-template/label/intent: apps
     iam:
       withAddonPolicies:
-        autoScaler: true
+        autoScaler: false
         cloudWatch: false
         albIngress: true
     privateNetworking: true
