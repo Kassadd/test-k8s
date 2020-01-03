@@ -69,6 +69,9 @@ ingress:
   public: false
   annotations: 
     snginx.ingress.kubernetes.io/rewrite-target: "/$1"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+  customAnnotations: {}
   #subdomain: none
   path: /
   backend:
