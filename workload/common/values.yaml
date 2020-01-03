@@ -12,6 +12,23 @@ image_pullPolicy: IfNotPresent
 
 replicaCount: 2
 
+nodeSelector:
+  kubernetes.io/os: linux
+  intent: apps
+
+tolerations:
+- key: "workload"
+  operator: "Equal"
+  value: "app"
+  effect: "NoSchedule"  
+
+hpa:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPUUtilizationPercentage: 50
+  targetMemoryUtilizationPercentage: 60
+
 container:
   containerPort: 80
   namePort: http

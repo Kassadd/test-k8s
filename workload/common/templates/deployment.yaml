@@ -2,17 +2,15 @@
 {{- define "mychart.deployment" -}}
 ## Define overrides for your Deployment resource here, e.g.
 spec:
+{{- if not .Values.hpa.enabled }}
   replicas: {{ required "Required .Values.replicaCount" .Values.replicaCount }}
+{{- end }}
   template:
     spec:
       nodeSelector:
-        kubernetes.io/os: linux
-        intent: apps
+{{ toYaml .Values.nodeSelector | indent 8  }}
       tolerations:
-      - key: "workload"
-        operator: "Equal"
-        value: "app"
-        effect: "NoSchedule"    
+{{ toYaml .Values.tolerations | indent 8  }}   
       containers:
       - {{ template "common.container" (list . "mychart.deployment.container") }}
 {{- end -}}
