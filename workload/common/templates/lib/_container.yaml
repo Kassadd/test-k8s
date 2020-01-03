@@ -1,5 +1,5 @@
 {{- define "common.container.tpl" -}}
-name: {{ .Chart.Name }}
+name: "{{ template "common.fullname" . }}-container"
 image: "{{ .Values.image_repository }}:{{ .Values.image_tag }}"
 imagePullPolicy: {{ .Values.image_pullPolicy }}
 ports:
