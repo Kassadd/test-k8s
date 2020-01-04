@@ -54,6 +54,8 @@ nginx-ingress:
                 http: http
                 https: http
 
+            externalTrafficPolicy: "Local"
+
     defaultBackend:
         nodeSelector:
             kubernetes.io/os: linux
