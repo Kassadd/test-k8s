@@ -29,7 +29,7 @@ nginx-ingress:
                 }
         containerPort:
             http: 80
-            httpRedirect: 8080
+            http-redirect: 8080
 
         autoscaling:
             enabled: false
@@ -60,7 +60,7 @@ nginx-ingress:
 
             targetPorts:
                 http: 8080
-                https: http
+                https: http-redirect
 
             externalTrafficPolicy: "Cluster"
 
