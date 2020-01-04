@@ -18,6 +18,7 @@ nginx-ingress:
         config:
             use-forwarded-headers: "true"
 #            proxy-real-ip-cidr: "0.0.0.0/0" # restrict this to the IP addresses of ELB
+            use-proxy-protocol: "true"
             hsts: "true"
             hsts-include-subdomains: "true"
             hsts-preload: "true"
