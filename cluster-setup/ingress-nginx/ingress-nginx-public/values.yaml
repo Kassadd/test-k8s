@@ -23,9 +23,9 @@ nginx-ingress:
             hsts-preload: "true"
             http-snippet: |
                 server {
-                listen 8080 proxy_protocol;
-                server_tokens off;
-                return 301 https://$host$request_uri;
+                    listen 8080 proxy_protocol;
+                    server_tokens off;
+                    return 301 https://$host$request_uri;
                 }
         containerPort:
             http: 8080
@@ -52,7 +52,7 @@ nginx-ingress:
                 service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "60"
                 # by default the type is elb (classic load balancer).
                 service.beta.kubernetes.io/aws-load-balancer-type: nlb
-                service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: 'tcp'
+                #service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: 'tcp'
 
             ports:
                 http: 80

@@ -12,7 +12,7 @@ metadata:
 #    kubernetes.io/tls-acme: "true"
 #    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     "helm.sh/hook": post-install
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+#    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
 spec:
   rules:
