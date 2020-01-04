@@ -29,7 +29,7 @@ nginx-ingress:
                 }
         containerPort:
             http: 8080
-            https: 443
+            https: 80
 
         autoscaling:
             enabled: false
@@ -62,7 +62,7 @@ nginx-ingress:
                 http: 8080
                 https: http
 
-            externalTrafficPolicy: "Local"
+            externalTrafficPolicy: "Cluster"
 
     defaultBackend:
         nodeSelector:
