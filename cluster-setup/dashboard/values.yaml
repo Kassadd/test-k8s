@@ -5,6 +5,9 @@ kubernetes-dashboard:
         - dashboard.javirp.com
         annotations:
             kubernetes.io/ingress.class: nginx-private
+            snginx.ingress.kubernetes.io/rewrite-target: "/$1"
+            nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+            nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
     
     enableInsecureLogin: true
 
