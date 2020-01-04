@@ -52,11 +52,11 @@ nginx-ingress:
                 service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: 'tcp'
 
             ports:
-                http: 80
+                http: 8080
                 https: 443
 
             targetPorts:
-                http: http
+                http: 8080
                 https: http
 
             externalTrafficPolicy: "Local"
