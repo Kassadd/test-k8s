@@ -4,13 +4,17 @@
 namePrefix: dev-
 fullnamePrefix: dev-
 
+
+deployment: true
+
 #Dummy
 image_repository: busybox
 image_tag: "1"
 image_pullPolicy: IfNotPresent
 ##
 
-replicaCount: 2
+replicaCount: 1
+revisionHistoryLimit: 2
 
 hpa:
   enabled: false
@@ -34,12 +38,12 @@ container:
   namePort: http
 
   livenessProbe:
-    initialDelaySeconds: 30
+    initialDelaySeconds: 20
     path: /
     port: 80
   
   readinessProbe:
-    initialDelaySeconds: 30
+    initialDelaySeconds: 20
     path: /
     port: 80
 
@@ -52,8 +56,8 @@ container:
       memory: 128Mi
 
 service:
-  enabled: true
-  type: ClusterIP
+  enabled: false
+  type: "ClusterIP"
 
   ports:
   - name: http
@@ -75,4 +79,4 @@ ingress:
   #subdomain: none
   path: /
   backend:
-    servicePort: http
+    servicePort: "http"

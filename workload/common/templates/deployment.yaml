@@ -1,21 +1,34 @@
+{{- if .Values.deployment }}
 {{- template "common.deployment" (list . "mychart.deployment") -}}
+{{- end }}
+
 {{- define "mychart.deployment" -}}
 ## Define overrides for your Deployment resource here, e.g.
 spec:
 {{- if not .Values.hpa.enabled }}
   replicas: {{ required "Required .Values.replicaCount" .Values.replicaCount }}
 {{- end }}
+  revisionHistoryLimit: {{ .Values.revisionHistoryLimit }}
   template:
     spec:
+
+{{- with .Values.nodeSelector }}
       nodeSelector:
-{{ toYaml .Values.nodeSelector | indent 8  }}
+{{ toYaml . | indent 8  }}
+{{- end }}
+
+{{- with .Values.tolerations }}
       tolerations:
-{{ toYaml .Values.tolerations | indent 8  }}   
+{{ toYaml . | indent 8  }}
+{{- end }}
+
       containers:
       - {{ template "common.container" (list . "mychart.deployment.container") }}
+
 {{- end -}}
 
 {{- define "mychart.deployment.container" -}}
+
 ports:
 - containerPort: {{ .Values.container.containerPort }}
   name: {{ .Values.container.namePort }}
