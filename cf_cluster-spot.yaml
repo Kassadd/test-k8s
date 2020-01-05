@@ -28,6 +28,9 @@ nodeGroups:
         albIngress: false
         externalDNS: true
     privateNetworking: true
+    volumeSize: 8
+    volumeEncrypted: true
+    volumeKmsKeyID: aa40e2a6-8d5e-4797-b1f7-543d696e0db0
 
   - name: apps
     minSize: 0
@@ -52,6 +55,16 @@ nodeGroups:
         cloudWatch: false
         albIngress: true
     privateNetworking: true
+    volumeSize: 8
+    volumeEncrypted: true
+    volumeKmsKeyID: aa40e2a6-8d5e-4797-b1f7-543d696e0db0
+
+fargateProfiles:
+  - name: fp-test
+    selectors:
+      # All workloads in the "test" Kubernetes namespace will be
+      # scheduled onto Fargate:
+      - namespace: test
 
 vpc:
   cidr: 10.100.0.0/16
