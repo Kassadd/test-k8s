@@ -1,3 +1,6 @@
+
+publicDomain: &publicDomain javirp.com
+
 nginx-ingress:
     controller:
         ingressClass: nginx-public
@@ -76,3 +79,26 @@ nginx-ingress:
               value: "app"
               effect: "NoSchedule"    
 
+external-dns:
+    image:
+        registry: "registry.opensource.zalan.do"
+        repository: teapot/external-dns
+        tag: v0.5.17
+
+    aws:
+        region: "" #Same node
+        zoneType: public
+
+    policy: sync
+    sources:
+        - ingress
+
+    provider: aws
+
+    interval: "1m"
+    registry: "txt"
+    txtOwnerId: "managedEKS-public"
+    annotationFilter: "kubernetes.io/ingress.class=nginx-public"
+    domainFilters:
+        - *publicDomain
+    
