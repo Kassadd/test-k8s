@@ -15,6 +15,6 @@ spec:
   - namespace: {{ .Values.namespace }}
     server: {{ .Values.global.server.cluster }}
   orphanedResources:
-    warn: false
+    warn: true
   sourceRepos:
   - {{ .Values.global.git.repo }}

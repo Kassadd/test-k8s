@@ -1,6 +1,8 @@
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
+environment: &env dev
+
 metadata:
   name: test-cluster
   region: eu-west-1
@@ -18,6 +20,7 @@ nodeGroups:
     labels:
       lifecycle: Ec2Spot
       intent: system
+      environment: *env
     tags:
       k8s.io/cluster-autoscaler/node-template/label/lifecycle: Ec2Spot
       k8s.io/cluster-autoscaler/node-template/label/intent: system
@@ -44,6 +47,7 @@ nodeGroups:
     labels:
       lifecycle: Ec2Spot
       intent: apps
+      environment: *env
     taints:
       workload: "app:NoSchedule"
     tags:
