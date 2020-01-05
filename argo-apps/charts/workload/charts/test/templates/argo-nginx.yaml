@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-workload
+  name: &name nginx-test
   namespace: {{ .Values.global.argocd_ns }}
 spec:
   destination:
@@ -9,9 +9,13 @@ spec:
     server: {{ .Values.global.server.cluster }}
   project: {{ .Values.project }}
   source:
-    path: {{ .Values.repo_path }}
+    path: "{{ .Values.repo_path }}/nginx"
     repoURL: {{ .Values.global.git.repo }}
     targetRevision: {{ .Values.global.targetRevision }}
     helm:
+      releaseName: *name
       valueFiles:
       - image_version.yaml
+      parameters:
+      - name: common.image_tag
+        value: $( cat ./image_version2.yaml )

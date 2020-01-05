@@ -7,6 +7,8 @@ fullnamePrefix: dev-
 
 deployment: true
 
+containerImageFile: "./image_version.yaml"
+
 #Dummy
 image_repository: busybox
 image_tag: "1"
@@ -23,9 +25,9 @@ hpa:
   targetCPUUtilizationPercentage: 50
   targetMemoryUtilizationPercentage: 60
 
-# nodeSelector:
-#   kubernetes.io/os: linux
-#   intent: apps
+nodeSelector:
+  kubernetes.io/os: linux
+  intent: apps
 
 tolerations:
 - key: "workload"
