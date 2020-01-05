@@ -28,6 +28,7 @@ nginx-ingress:
                     server_tokens off;
                     return 301 https://$host$request_uri;
                 }
+
         containerPort:
             http: 80
             http-redirect: 8080
@@ -60,8 +61,8 @@ nginx-ingress:
                 https: 443
 
             targetPorts:
-                http: 8080
-                https: http-redirect
+                http: http-redirect
+                https: http
 
             externalTrafficPolicy: "Cluster"
 
