@@ -23,9 +23,9 @@ hpa:
   targetCPUUtilizationPercentage: 50
   targetMemoryUtilizationPercentage: 60
 
-nodeSelector:
-  kubernetes.io/os: linux
-  intent: apps
+# nodeSelector:
+#   kubernetes.io/os: linux
+#   intent: apps
 
 tolerations:
 - key: "workload"
