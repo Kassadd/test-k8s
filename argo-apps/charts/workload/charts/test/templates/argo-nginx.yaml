@@ -16,6 +16,3 @@ spec:
       releaseName: *name
       valueFiles:
       - image_version.yaml
-      parameters:
-      - name: common.image_tag
-        value: $( cat ./image_version2.yaml )
