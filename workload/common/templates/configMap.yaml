@@ -1,9 +1,0 @@
-{{- template "common.configmap" (list . "mychart.configmap") -}}
-{{- define "mychart.configmap" -}}
-data:
-  zeus: cat
-  athena: cat
-  julius: cat2
-  one: |-
-    {{ .Files.Get "file1.txt" }}
-{{- end -}}

@@ -4,9 +4,15 @@
 
 name: &name nginx-test
 
+nameOverride: *name
+fullnameOverride: *name
+
 common:
   nameOverride: *name
   fullnameOverride: *name
+
+  configMap: *name
+  secret: *name
 
   image_repository: nginx
   
@@ -36,3 +42,4 @@ common:
     enabled: true
     public: true
     subdomain: test
+    path: "/"

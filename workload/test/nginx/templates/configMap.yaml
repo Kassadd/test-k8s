@@ -1,0 +1,15 @@
+{{- if .Files.Glob "conf/*.yaml" }}
+{{- template "common.configmap" (list . "myLocalChart.configmap") -}}
+{{- end -}}
+
+
+{{- define "myLocalChart.configmap" -}}
+metadata:
+    name: {{ .Values.common.configMap }}
+
+data:
+{{ range $path, $_ := .Files.Glob "conf/*.yaml" }}
+{{ $.Files.Get $path | indent 2}}
+{{ end }}
+
+{{- end -}}

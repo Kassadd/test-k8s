@@ -7,8 +7,6 @@ fullnamePrefix: dev-
 
 deployment: true
 
-containerImageFile: "./image_version.yaml"
-
 #Dummy
 image_repository: busybox
 image_tag: "1"
@@ -58,7 +56,7 @@ container:
       memory: 128Mi
 
 service:
-  enabled: false
+  enabled: true
   type: "ClusterIP"
 
   ports:
@@ -74,7 +72,7 @@ ingress:
   domain: javirp.com
   public: false
   annotations: 
-    snginx.ingress.kubernetes.io/rewrite-target: "/$1"
+    nginx.ingress.kubernetes.io/rewrite-target: "/$1"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
   customAnnotations: {}

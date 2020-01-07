@@ -50,8 +50,19 @@ resources:
     cpu: {{ .Values.container.resources.requests.cpu }}
     memory: {{ .Values.container.resources.requests.memory }}
 
+{{- if or .Values.configMap .Values.secret }}
 envFrom:
-- configMapRef:
-    name: {{ template "common.fullname" . }}
 
-{{- end -}}
+{{- if .Values.configMap }}
+- configMapRef:
+    name: {{  .Values.configMap }}
+{{- end }}
+
+{{- if .Values.secret }}
+- secretRef:
+    name: {{  .Values.secret }}
+{{- end }}
+
+{{- end }}
+
+{{ end -}}
