@@ -1,6 +1,8 @@
 aws-node-termination-handler:
-    tolerations:
-    - key: "workload"
-      operator: "Equal"
-      value: "app"
-      effect: "NoSchedule"
+  tolerations:
+  - key: "workload"
+    operator: "Equal"
+    value: "app"
+    effect: "NoSchedule"
+  nodeSelector:
+    lifecycle: Ec2Spot
