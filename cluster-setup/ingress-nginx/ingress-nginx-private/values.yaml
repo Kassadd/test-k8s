@@ -67,6 +67,11 @@ nginx-ingress:
                 https: http
 
             externalTrafficPolicy: "Cluster"
+        
+        metrics:
+            enabled: true
+            prometheusRule:
+                enabled: true
 
     defaultBackend:
         nodeSelector:

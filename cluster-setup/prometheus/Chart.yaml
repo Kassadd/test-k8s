@@ -1,0 +1,9 @@
+apiVersion: v1
+description: prometheus-operator install
+name: prometheus-operator
+version: 1.0.0
+appVersion: 0.34.0
+home: https://helm.sh
+maintainers:
+- name: javi
+  email: javirp@gmail.com
