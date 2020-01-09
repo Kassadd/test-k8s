@@ -43,3 +43,5 @@ linkerd2:
             IHVT3aFi0oU8HO/eMN0GXFotJsiQKKpdsKY9/MAFjxV9AiAtqqESzJi89B/QFWSy
             XtkynYklueRzUv2SMMngq7g1ww==
             -----END CERTIFICATE-----
+    
+    disableHeartBeat: true

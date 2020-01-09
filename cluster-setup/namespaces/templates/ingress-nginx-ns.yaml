@@ -2,7 +2,9 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: ingress-nginx
-  labels:
-    app.kubernetes.io/part-of: ingress-nginx
   annotations:
-    linkerd.io/inject: disabled
+    linkerd.io/inject: enabled
+    config.linkerd.io/disable-identity: "true"
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
