@@ -20,7 +20,9 @@ filebeat:
         protocol: "https"
         compression_level: 6      
         index: "%{[fields.kubernetes.namespace]}-%{+yyyy.MM.dd}" 
-
+      
+      setup.template.name: "k8s-cluster"
+      setup.template.name: "k8s-cluster-*"
 
   tolerations:
     - key: "workload"
