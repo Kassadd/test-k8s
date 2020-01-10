@@ -5,7 +5,7 @@ filebeat:
   filebeatConfig:
     filebeat.yml: |
       
-      setup.ilm.enabled = false
+      setup.ilm.enabled: false
 
       filebeat.inputs:
       - type: docker
