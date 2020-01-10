@@ -1,54 +1,10 @@
 filebeat:
-    #indexTemplateLoad: ["search-test-cluster-2mvag5xft2n6w7bq45seazhz6y.eu-west-1.es.amazonaws.com:443"]
-    overrideConfig:
-        filebeat.config:
-            modules:
-            path: ${path.config}/modules.d/*.yml
-            # Reload module configs as they change:
-            reload.enabled: false
-
-        processors:
-            - add_cloud_metadata:
-
-        filebeat.inputs:
-        - type: log
-          enabled: true
-          paths:
-            - /var/log/*.log
-            - /var/log/messages
-            - /var/log/syslog
-        - type: docker
-          containers.ids:
-          - "*"
-          processors:
-            - add_kubernetes_metadata:
-                in_cluster: true
-            - drop_event:
-                when:
-                  equals:
-                    kubernetes.container.name: "filebeat"
-
-        output.elasticsearch:
-            hosts: ["search-test-cluster-2mvag5xft2n6w7bq45seazhz6y.eu-west-1.es.amazonaws.com:443"]
-            protocol: "https"
-            username: ""
-            password: ""
-        # When a key contains a period, use this format for setting values on the command line:
-        # --set config."http\.enabled"=true
-        http.enabled: true
-        http.port: 5066
-
-
-    resources:
-        limits:
-            cpu: 100m
-            memory: 200Mi
-        requests:
-            cpu: 100m
-            memory: 100Mi
-
-    tolerations:
+  tolerations:
     - key: "workload"
       operator: "Equal"
       value: "app"
       effect: "NoSchedule" 
+
+  extraEnvs:
+      - name: ELASTICSEARCH_HOSTS
+        value: search-test-cluster-2mvag5xft2n6w7bq45seazhz6y.eu-west-1.es.amazonaws.com:443

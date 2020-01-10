@@ -1,0 +1,73 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: test-cluster2
+  region: eu-west-1
+
+nodeGroups:
+  - name: system
+    minSize: 3
+    maxSize: 4
+    desiredCapacity: 4
+    instancesDistribution:
+      instanceTypes: [ "t3a.small", "t3.small" ]
+      onDemandBaseCapacity: 0
+      onDemandPercentageAboveBaseCapacity: 0
+      spotInstancePools: 4
+    labels:
+      lifecycle: Ec2Spot
+      intent: system
+      environment: &env test
+    tags:
+      k8s.io/cluster-autoscaler/node-template/label/lifecycle: Ec2Spot
+      k8s.io/cluster-autoscaler/node-template/label/intent: system
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+        cloudWatch: false
+        albIngress: false
+        externalDNS: true
+    privateNetworking: true
+    volumeSize: 8
+    volumeEncrypted: true
+    volumeKmsKeyID: aa40e2a6-8d5e-4797-b1f7-543d696e0db0
+
+  - name: apps
+    minSize: 0
+    maxSize: 2
+    desiredCapacity: 1
+    instancesDistribution:
+      instanceTypes: [ "t3a.small", "t3.small" ]
+      onDemandBaseCapacity: 0
+      onDemandPercentageAboveBaseCapacity: 0
+      spotInstancePools: 2
+    labels:
+      lifecycle: Ec2Spot
+      intent: apps
+      environment: *env
+    taints:
+      workload: "app:NoSchedule"
+    tags:
+      k8s.io/cluster-autoscaler/node-template/label/lifecycle: Ec2Spot
+      k8s.io/cluster-autoscaler/node-template/label/intent: apps
+    iam:
+      withAddonPolicies:
+        autoScaler: false
+        cloudWatch: false
+        albIngress: true
+    privateNetworking: true
+    volumeSize: 8
+    volumeEncrypted: true
+    volumeKmsKeyID: aa40e2a6-8d5e-4797-b1f7-543d696e0db0
+
+# fargateProfiles:
+#   - name: fp-test
+#     selectors:
+#       # All workloads in the "test" Kubernetes namespace will be
+#       # scheduled onto Fargate:
+#       - namespace: test
+
+vpc:
+  cidr: 10.200.0.0/16
+  autoAllocateIPv6: false
