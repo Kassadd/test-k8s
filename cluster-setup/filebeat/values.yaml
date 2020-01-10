@@ -22,11 +22,11 @@ filebeat:
         - "*"
         processors:
             - add_kubernetes_metadata:
-                in_cluster: true
+              in_cluster: true
             - drop_event:
-                when:
+              when:
                 equals:
-                    kubernetes.container.name: "filebeat"
+                  kubernetes.container.name: "filebeat"
         output.elasticsearch:
             hosts: ["https://search-test-cluster-2mvag5xft2n6w7bq45seazhz6y.eu-west-1.es.amazonaws.com"]
             protocol: "https"
