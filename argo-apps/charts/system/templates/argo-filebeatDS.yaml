@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.global.argocd_ns }}
 spec:
   destination:
-    namespace: kube-system
+    namespace: monitoring
     server: {{ .Values.global.server.cluster }}
   project: {{ .Values.project }}
   source:
