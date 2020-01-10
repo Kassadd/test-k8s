@@ -14,9 +14,9 @@ filebeat:
         - type: log
           enabled: true
           paths:
-          - /var/log/*.log
-          - /var/log/messages
-          - /var/log/syslog
+            - /var/log/*.log
+            - /var/log/messages
+            - /var/log/syslog
         - type: docker
           containers.ids:
           - "*"
@@ -31,8 +31,8 @@ filebeat:
         output.elasticsearch:
             hosts: ["search-test-cluster-2mvag5xft2n6w7bq45seazhz6y.eu-west-1.es.amazonaws.com:443"]
             protocol: "https"
-            username: "filebeat_internal"
-            password: "YOUR_PASSWORD"
+            username: ""
+            password: ""
         # When a key contains a period, use this format for setting values on the command line:
         # --set config."http\.enabled"=true
         http.enabled: true
