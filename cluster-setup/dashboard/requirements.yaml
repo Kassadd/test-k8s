@@ -1,7 +1,0 @@
-dependencies:
-- name: metrics-server
-  Version: 2.8.9
-  repository: https://kubernetes-charts.storage.googleapis.com/
-- name: kubernetes-dashboard
-  Version: 1.10.1
-  repository: https://kubernetes-charts.storage.googleapis.com/
