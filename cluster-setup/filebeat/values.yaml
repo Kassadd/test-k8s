@@ -45,3 +45,9 @@ filebeat:
         requests:
             cpu: 100m
             memory: 100Mi
+
+    tolerations:
+    - key: "workload"
+      operator: "Equal"
+      value: "app"
+      effect: "NoSchedule" 
