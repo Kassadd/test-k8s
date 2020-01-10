@@ -22,7 +22,7 @@ filebeat:
         - "*"
         processors:
             - add_kubernetes_metadata:
-              in_cluster: true
+                in_cluster: true
             - drop_event:
               when:
                 equals:
