@@ -24,7 +24,7 @@ spec:
   jobLabel: app
   namespaceSelector:
     matchNames:
-    - {{ .Release.Namespace }}
+    - linkerd
   selector:
     matchLabels:
       linkerd.io/control-plane-component: prometheus
