@@ -21,8 +21,7 @@ filebeat:
           containers.ids:
           - "*"
           processors:
-          - add_kubernetes_metadata:
-            in_cluster: true
+          - add_kubernetes_metadata: {}
           - drop_event:
             when:
               equals:
