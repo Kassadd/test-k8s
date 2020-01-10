@@ -17,6 +17,7 @@ filebeat:
       output.elasticsearch:
         host: '${NODE_NAME}'
         hosts: '${ELASTICSEARCH_HOSTS:elasticsearch-master:9200}'
+        protocol: "https"
         compression_level: 6      
         index: "%{[fields.kubernetes.namespace]}-%{+yyyy.MM.dd}" 
 
@@ -30,4 +31,3 @@ filebeat:
   extraEnvs:
       - name: ELASTICSEARCH_HOSTS
         value: search-test-cluster-2mvag5xft2n6w7bq45seazhz6y.eu-west-1.es.amazonaws.com:443
-        protocol: "https"
