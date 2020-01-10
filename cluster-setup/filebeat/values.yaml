@@ -28,7 +28,7 @@ filebeat:
                 equals:
                   kubernetes.container.name: "filebeat"
         output.elasticsearch:
-            hosts: ["https://search-test-cluster-2mvag5xft2n6w7bq45seazhz6y.eu-west-1.es.amazonaws.com"]
+            hosts: ["search-test-cluster-2mvag5xft2n6w7bq45seazhz6y.eu-west-1.es.amazonaws.com:443"]
             protocol: "https"
             username: "filebeat_internal"
             password: "YOUR_PASSWORD"
