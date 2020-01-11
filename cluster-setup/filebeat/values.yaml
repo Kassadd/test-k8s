@@ -8,21 +8,26 @@ filebeat:
       setup.ilm.enabled: false
 
       filebeat.inputs:
-      - type: docker
-        containers.ids:
-        - '*'
+      - type: container
+        paths: 
+          - '/var/lib/docker/containers/*/*.log'
+        format: docker
         processors:
         - add_kubernetes_metadata: ~
-      
+        - drop_event:
+            when:
+              equals:
+                kubernetes.namespace: "monitoring"
+
       output.elasticsearch:
         host: '${NODE_NAME}'
         hosts: '${ELASTICSEARCH_HOSTS:elasticsearch-master:9200}'
         protocol: "https"
-        compression_level: 6      
-        index: "%{[fields.kubernetes.namespace]}-%{+yyyy.MM.dd}" 
+        index: "k8s-%{[kubernetes][namespace]}-%{+yyyy.MM.dd}" 
       
-      setup.template.name: "k8s-cluster"
-      setup.template.name: "k8s-cluster-*"
+      setup.template.name: "k8s-"
+      setup.template.pattern: "k8s-*"
+      setup.template.overwrite: true
 
   tolerations:
     - key: "workload"
