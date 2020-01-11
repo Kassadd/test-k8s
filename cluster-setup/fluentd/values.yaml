@@ -8,3 +8,12 @@ fluentd-elasticsearch:
     port: 443
     scheme: "https"
 
+  extraConfigMaps:
+    filters.conf: |-
+      <filter kubernetes.**>
+          @type grep
+          <exclude>
+              key $['kubernetes']['namespace_name']
+              pattern "argocd"
+          </exclude>
+      </filter>
