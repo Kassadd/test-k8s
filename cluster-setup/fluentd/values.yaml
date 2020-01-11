@@ -1,0 +1,10 @@
+fluentd-elasticsearch:
+
+  awsSigningSidecar:
+    enabled: true
+
+  elasticsearch:
+    host: "search-test-cluster-2mvag5xft2n6w7bq45seazhz6y.eu-west-1.es.amazonaws.com"
+    port: 443
+    scheme: "https"
+
