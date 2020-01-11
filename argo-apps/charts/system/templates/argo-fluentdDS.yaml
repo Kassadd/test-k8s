@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fluentd
+  namespace: {{ .Values.global.argocd_ns }}
+spec:
+  destination:
+    namespace: monitoring
+    server: {{ .Values.global.server.cluster }}
+  project: {{ .Values.project }}
+  source:
+    path: "{{ .Values.repo_path }}/fluentd"
+    repoURL: {{ .Values.global.git.repo }}
+    targetRevision: {{ .Values.global.targetRevision }}
+#  syncPolicy:
+#    automated:
+#      prune: true
+#      selfHeal: true
