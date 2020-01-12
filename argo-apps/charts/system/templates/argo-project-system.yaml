@@ -26,6 +26,8 @@ spec:
     server: {{ .Values.global.server.cluster }}
   - namespace: monitoring
     server: {{ .Values.global.server.cluster }}
+  - namespace: external
+    server: {{ .Values.global.server.cluster }}
   orphanedResources:
     warn: false
   sourceRepos:

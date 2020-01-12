@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "{{ .Release.Name }}"
+  labels:
+    app.kubernetes.io/part-of:  "{{ .Chart.Name }}"
+  annotations:
+  {{- if .Values.kibana.public }}
+    kubernetes.io/ingress.class: nginx-public
+  {{- else }}
+    kubernetes.io/ingress.class: nginx-private
+  {{- end }}
+    "helm.sh/hook": post-install
+spec:
+  rules:
+  - host: "{{ .Values.kibana.subdomain }}.{{ .Values.domain }}"
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: "{{ .Release.Name }}"
+          servicePort: https

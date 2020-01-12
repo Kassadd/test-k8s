@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: "{{ .Release.Name }}"
+  labels:
+    app.kubernetes.io/part-of:  "{{ .Chart.Name }}"
+spec:
+ type: ExternalName
+ externalName: "{{ .Values.kibana.externalResource }}"
+
