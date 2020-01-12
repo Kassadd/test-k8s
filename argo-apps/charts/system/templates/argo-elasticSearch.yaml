@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: elasticSearch
+  name: elasticsearch
   namespace: {{ .Values.global.argocd_ns }}
 spec:
   destination:
