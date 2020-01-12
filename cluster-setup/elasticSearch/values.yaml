@@ -2,12 +2,12 @@ domain: "javirp.com"
 
 elasticSearch:
   serviceName: "elasticExternalService"
-  externalResource: "search-test-cluster-2mvag5xft2n6w7bq45seazhz6y.eu-west-1.es.amazonaws.com"
+  externalResource: &URI "search-test-cluster-2mvag5xft2n6w7bq45seazhz6y.eu-west-1.es.amazonaws.com"
   subdomain: "elastic"
   public: false
 
 kibana:
   serviceName: "kibanaExternalService"
-  externalResource: "search-test-cluster-2mvag5xft2n6w7bq45seazhz6y.eu-west-1.es.amazonaws.com" #/_plugin/kibana/
+  externalResource: *URI #/_plugin/kibana/
   subdomain: "kibana"
   public: true
